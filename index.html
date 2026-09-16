@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Abraham Wood</title>
+<meta name="description" content="Session drummer, bassist and worship music director. Tracks, Playback and Prime. Speaking and lessons.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="logo" href="#top">AW<span class="dot"></span></a>
+    <nav aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#story">Story</a>
+      <a href="#brands">Brands</a>
+      <a href="#contact" class="nav-cta">Book</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="wash" aria-hidden="true"></div>
+
+    <div class="hero-in">
+      <p class="kicker">Drums &middot; Bass &middot; Music Direction</p>
+      <h1 class="bigname">
+        <span class="l1">ABRAHAM</span>
+        <span class="l2">WOOD</span>
+      </h1>
+      <p class="hero-sub">
+        Six years on a worship team. Contracted at a dozen-plus churches and camps.
+        I play the gig, run the band, or build the tracks you play to.
+      </p>
+      <div class="hero-cta">
+        <a class="btn primary" href="#contact">Check availability</a>
+        <a class="btn ghost" href="#work">What I do</a>
+      </div>
+    </div>
+
+    <!-- groove machine -->
+    <div class="deck" id="deck">
+      <div class="deck-head">
+        <span class="mono lbl">GROOVE&nbsp;/&nbsp;DEMO</span>
+        <span class="mono bpm"><span id="bpmVal">92</span> BPM</span>
+      </div>
+
+      <div class="deck-body">
+        <button class="transport" id="playBtn" aria-pressed="false" aria-label="Play the demo groove">
+          <svg class="ico-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+          <svg class="ico-stop" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1.5" fill="currentColor"/></svg>
+          <span class="t-label mono">PLAY</span>
+        </button>
+
+        <div class="grid-wrap">
+          <div class="steps" id="steps" aria-hidden="true"></div>
+          <canvas id="wave" class="wave" aria-hidden="true"></canvas>
+        </div>
+
+        <label class="tempo">
+          <span class="mono lbl">TEMPO</span>
+          <input id="bpm" type="range" min="68" max="140" value="92" step="1" aria-label="Tempo in beats per minute">
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="mq"></div>
+  </div>
+
+  <!-- ============ WORK ============ -->
+  <section class="band" id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="mono tag">SERVICES</span>
+        <h2>Five ways to<br>work together</h2>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <span class="mono badge">LIVE</span>
+          <h3>Session drums &amp; bass</h3>
+          <p>Weekends, conferences, camps, studio dates. Charts learned before I land, in-ears and click no problem, gear if you need it.</p>
+          <span class="card-line" aria-hidden="true"></span>
+        </article>
+
+        <article class="card">
+          <span class="mono badge">LIVE</span>
+          <h3>Worship music direction</h3>
+          <p>Running the band from the kit or the bass. Set lists, charts, rehearsal, cues, and a volunteer team locked to tracks.</p>
+          <span class="card-line" aria-hidden="true"></span>
+        </article>
+
+        <article class="card feature">
+          <span class="mono badge">REMOTE</span>
+          <h3>Tracks &amp; session prep</h3>
+          <p>Ableton sessions built and ready to run — stems, click, guide, pads and cues mapped for Playback or Prime. Nashville number charts on request. Delivered before rehearsal, from anywhere.</p>
+          <span class="card-line" aria-hidden="true"></span>
+        </article>
+
+        <article class="card">
+          <span class="mono badge">STAGE</span>
+          <h3>Speaking</h3>
+          <p>Camps, retreats, youth nights. Ten people in a living room to a thousand in 85 weeks — that's usually the talk.</p>
+          <span class="card-line" aria-hidden="true"></span>
+        </article>
+
+        <article class="card">
+          <span class="mono badge">1:1</span>
+          <h3>Drum lessons</h3>
+          <p>Beginner and intermediate, built around playing with a band instead of alone. Time, dynamics, reading a chart, holding a room.</p>
+          <span class="card-line" aria-hidden="true"></span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STORY ============ -->
+  <section class="band alt" id="story">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="mono tag">BACKGROUND</span>
+        <h2>Where this<br>comes from</h2>
+      </div>
+
+      <div class="story-grid">
+        <div class="story-copy">
+          <p>Born in Ethiopia, raised in Southern California. Six years on the worship team at Mariners Church in Irvine — drums, bass and guitar across the Irvine congregation, weekend Worship Center, youth and VBS. Two of those years on staff, drumming the main weekend service.</p>
+          <p>Now at Liberty University studying Business Administration and Data Analytics, still flying out for dates.</p>
+        </div>
+
+        <ol class="timeline">
+          <li>
+            <span class="mono when">6 YRS</span>
+            <div>
+              <h3>Mariners Church, Irvine</h3>
+              <p>Worship team &mdash; drums, bass, guitar. Two summers on staff. Music director for Mariners Youth.</p>
+            </div>
+          </li>
+          <li>
+            <span class="mono when">12+</span>
+            <div>
+              <h3>Contracted engagements</h3>
+              <p>Churches and camps booked for drums and bass.</p>
+            </div>
+          </li>
+          <li>
+            <span class="mono when">2024</span>
+            <div>
+              <h3>Apprenticeship &mdash; JC Villafan</h3>
+              <p>A summer building reference tracks.</p>
+            </div>
+          </li>
+          <li>
+            <span class="mono when">85 WK</span>
+            <div>
+              <h3>New Youth &mdash; co-founder</h3>
+              <p>Ten people in a living room to 1,000+. Built the account to ~2,000 followers and verification, then handed it off.</p>
+            </div>
+          </li>
+          <li>
+            <span class="mono when">RIG</span>
+            <div>
+              <h3>Ableton Live &middot; Playback &middot; Prime</h3>
+              <p>Track building, click and cue mapping, Nashville number charts.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BRANDS ============ -->
+  <section class="band" id="brands">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="mono tag">SALES &amp; PARTNERSHIPS</span>
+        <h2>I sell what<br>I actually use</h2>
+        <p class="sec-sub">Studying professional selling at Liberty, six years inside the church and camp world — usually the exact audience a brand is trying to reach.</p>
+      </div>
+
+      <div class="brand-row">
+        <article class="brand">
+          <span class="mono badge">SALES REP</span>
+          <h3>Fourth Man Roasters</h3>
+          <p>Opening wholesale coffee accounts with churches, caf&eacute;s and camps.</p>
+        </article>
+
+        <article class="brand">
+          <span class="mono badge">AMBASSADOR</span>
+          <h3>IVHISGLORY</h3>
+          <p>Christian apparel. Code <b class="code">ABEWOOD7</b> takes 15% off.</p>
+        </article>
+
+        <article class="brand">
+          <span class="mono badge">AUDIENCE</span>
+          <h3>Zero to 2,000</h3>
+          <p>Grew @new_youthoc from nothing to a verified account on content alone.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <span class="mono tag">BOOKING</span>
+      <h2>Send me the date<br>and the set list.</h2>
+      <div class="links">
+        <a href="mailto:abewood07@gmail.com">abewood07@gmail.com</a>
+        <a href="https://www.linkedin.com/in/abraham-wood-416" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <span class="mono">ABRAHAM WOOD</span>
+      <span class="mono">DRUMS &middot; BASS &middot; MD</span>
+    </div>
+  </footer>
+
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>
