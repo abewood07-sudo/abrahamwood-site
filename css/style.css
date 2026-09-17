@@ -34,6 +34,7 @@
 * { box-sizing: border-box; }
 
 body {
+  margin: 0;
   background: var(--void);
   color: var(--text);
   font-family: var(--sans);
@@ -161,7 +162,7 @@ a { color: inherit; }
 
 .hero {
   position: relative;
-  padding-block: clamp(3.5rem, 9vw, 7rem) clamp(2rem, 4vw, 3rem);
+  padding-block: clamp(3.5rem, 9vw, 7rem) clamp(3rem, 7vw, 5.5rem);
   overflow: hidden;
 }
 
@@ -181,6 +182,8 @@ a { color: inherit; }
   max-width: var(--max);
   margin: 0 auto;
   padding-inline: var(--gutter);
+  /* the headline is sized off this box's width, not the viewport's */
+  container-type: inline-size;
 }
 
 .kicker {
@@ -196,7 +199,12 @@ a { color: inherit; }
   font-weight: 800;
   line-height: 0.82;
   letter-spacing: -0.045em;
-  font-size: clamp(3.4rem, 1.2rem + 13.5vw, 11rem);
+  /* "ABRAHAM" in Syne ExtraBold is 8.4em wide, so the headline can never be
+     larger than container-width / 8.4 without being clipped. 11.4cqw leaves
+     the widest line at ~96% of the box. The clamp() is the fallback for
+     browsers without container query units; it is sized the same way. */
+  font-size: clamp(2rem, 10.2vw, 7.6rem);
+  font-size: min(11.4cqw, 7.9rem);
   display: flex;
   flex-direction: column;
 }
@@ -242,136 +250,6 @@ a { color: inherit; }
 .btn.ghost { border-color: var(--line-2); color: var(--text); }
 .btn.ghost:hover { border-color: var(--amber); color: var(--amber); transform: translateY(-2px); }
 
-/* ================= GROOVE DECK ================= */
-
-.deck {
-  position: relative;
-  max-width: var(--max);
-  margin: clamp(2.5rem, 6vw, 4.5rem) auto 0;
-  margin-inline: max(var(--gutter), calc((100% - var(--max)) / 2));
-  background: linear-gradient(180deg, var(--panel) 0%, var(--stage) 100%);
-  border: 1px solid var(--line-2);
-  border-radius: 14px;
-  box-shadow: 0 24px 60px -30px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.05);
-  overflow: hidden;
-}
-
-.deck-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.7rem 1rem;
-  border-bottom: 1px solid var(--line);
-  background: rgba(255,255,255,0.015);
-}
-
-.deck-head .lbl { color: var(--faint); }
-.deck-head .bpm { color: var(--amber); font-variant-numeric: tabular-nums; }
-
-.deck-body {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: clamp(0.9rem, 2.5vw, 1.6rem);
-  padding: clamp(0.9rem, 2.5vw, 1.4rem);
-}
-
-.transport {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.35rem;
-  background: var(--amber);
-  color: #0A0A0A;
-  border: 0;
-  border-radius: 10px;
-  padding: 0.7rem 0.85rem;
-  cursor: pointer;
-  font: inherit;
-  transition: background-color 0.18s ease, transform 0.12s ease;
-}
-
-.transport:hover { background: var(--amber-hot); }
-.transport:active { transform: scale(0.97); }
-.transport svg { width: 22px; height: 22px; display: block; }
-.transport .ico-stop { display: none; }
-.transport[aria-pressed="true"] .ico-play { display: none; }
-.transport[aria-pressed="true"] .ico-stop { display: block; }
-.transport .t-label { font-size: 0.6rem; letter-spacing: 0.1em; }
-
-.grid-wrap { min-width: 0; }
-
-.steps {
-  display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  gap: 3px;
-  margin-bottom: 0.55rem;
-}
-
-.steps i {
-  height: 5px;
-  border-radius: 2px;
-  background: rgba(255,255,255,0.08);
-  transition: background-color 0.07s linear;
-}
-
-.steps i.beat { background: rgba(255,255,255,0.16); }
-.steps i.on { background: var(--amber); }
-
-.wave {
-  display: block;
-  width: 100%;
-  height: 58px;
-  max-width: 100%;
-}
-
-.tempo {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-  align-items: flex-start;
-}
-
-.tempo .lbl { color: var(--faint); }
-
-.tempo input[type="range"] {
-  -webkit-appearance: none;
-  appearance: none;
-  width: clamp(70px, 14vw, 130px);
-  height: 3px;
-  background: var(--line-2);
-  border-radius: 2px;
-  cursor: pointer;
-}
-
-.tempo input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--amber);
-  border: 0;
-}
-
-.tempo input[type="range"]::-moz-range-thumb {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--amber);
-  border: 0;
-}
-
-@media (max-width: 40rem) {
-  .deck-body { grid-template-columns: auto 1fr; }
-  .tempo {
-    grid-column: 1 / -1;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  .tempo input[type="range"] { width: 100%; }
-}
-
 /* ================= MARQUEE ================= */
 
 .marquee {
@@ -379,7 +257,6 @@ a { color: inherit; }
   background: var(--stage);
   overflow: hidden;
   padding-block: 0.8rem;
-  margin-top: clamp(2.5rem, 6vw, 4.5rem);
 }
 
 .marquee-track {
